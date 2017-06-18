@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
-import { HeroDetailComponent } from './hero-detail.component';
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
-
-
+ 
 @Component({
-  selector: 'app-root',
+  selector: 'my-app',
   template: `
-    <h1>title</h1>
-    <my-heroes></my-heroes>
-  `
+     <h1>{{title}}</h1>
+     <nav>
+      <a routerLink="/dashboard">DashBoard</a>
+      <a routerLink="/heroes">Heroes</a>
+     <router-outlet></router-outlet>
+   `
 })
-
 export class AppComponent {
   title = 'Tour of Heroes';
 }
