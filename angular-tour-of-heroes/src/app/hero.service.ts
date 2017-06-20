@@ -10,6 +10,8 @@ export class HeroService{
 
   constructor(private http: Http){ }
 
+  getHero(id: number): Promise<Hero>
+
   getHeroes(): Promise<Hero[]> {
     return this.http.get(this.heroesUrl).toPromise().then(response => response.json().data as Hero[]).catch(this.handleError);
   }
