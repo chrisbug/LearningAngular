@@ -1,2 +1,8 @@
+<label>Server Name</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)"> <!-- catches event data for use-->
+{{serverName}}
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button> <!-- databinding using the boolean in component -->
+<p [innerText]="allowNewServer"></p> <!-- when changing a property use this when just displaying use string interpolation -->
+<p>{{ serverCreationStatus }}</p>
 <app-server></app-server>
 <app-server></app-server>
