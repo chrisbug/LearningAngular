@@ -1,8 +1,13 @@
 <label>Server Name</label>
-<input type="text" class="form-control" (input)="onUpdateServerName($event)"> <!-- catches event data for use-->
-{{serverName}}
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> catches event data for use and this one way databinding-->
+<input type="text" class="form-control" [(ngModel)]="serverName"> <!-- THis is two way databinding -->
+<!-- <h4>{{serverName}}</h4> -->
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button> <!-- databinding using the boolean in component -->
 <p [innerText]="allowNewServer"></p> <!-- when changing a property use this when just displaying use string interpolation -->
-<p>{{ serverCreationStatus }}</p>
+<!--<p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated; else noServer"> Server {{ serverName }} was created :)</p>
+<ng-template #noServer>
+<p>No server was created!</p>
+</ng-template>
 <app-server></app-server>
 <app-server></app-server>
