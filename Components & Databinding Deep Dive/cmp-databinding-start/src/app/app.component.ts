@@ -27,4 +27,8 @@ export class AppComponent implements OnInit {
   constructor(){ }
 
   ngOnInit() {}
+
+  onChangeFirst() {
+    this.serverElements[0].name = 'Changed';
+  }
 }
