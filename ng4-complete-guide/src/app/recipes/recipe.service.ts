@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
@@ -9,9 +9,8 @@ export class RecipeService {
 
    constructor(private shoppingListService: ShoppingListService){}
 
-  recipeSelected = new EventEmitter<Recipe>();
 
-  private recipes: Recipe[] = [
+   private recipes: Recipe[] = [
     new Recipe(
       'Taco Chips',
       'This is just a test',
@@ -35,6 +34,10 @@ export class RecipeService {
 
   getRecipes(){
     return this.recipes.slice(); //by calling slice without peramenters it return a new array and not refrenc the object in memory whoop!
+  }
+
+  getRecipe(index: number){
+    return this.recipes[index];
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]){
